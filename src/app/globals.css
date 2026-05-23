@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ============================================
+   VERSEINK DESIGN TOKENS
+   These map directly to the Figma design.
+   ============================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-page-bg: #EBEBEF;
+  --color-card: #FFFFFF;
+  --color-card-dark: #111111;
+  --color-accent: #D4F520;
+  --color-cta-blue: #007AFF;
+  --color-text-primary: #000000;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted: #9A9A9A;
+  --color-nav-border: rgba(0, 0, 0, 0.06);
+
+  /* Fonts — set from layout.tsx CSS variables */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-newsreader);
+
+  /* Radius */
+  --radius-card: 24px;
+  --radius-pill: 999px;
+  --radius-highlight: 14px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   BASE STYLES
+   ============================================ */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-page-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force light mode — no dark mode on this marketing site */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* ============================================
+   CUSTOM UTILITIES
+   ============================================ */
+
+/* The neon yellow-green highlight pill (used on "easier" and "fingertips?") */
+.highlight-accent {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-highlight);
+  padding: 2px 16px;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Serif italic style (used on "Word" and "Scriptures") */
+.text-serif-italic {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+}
+
+/* Nav pill container */
+.nav-pill {
+  border: 1px solid var(--color-nav-border);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Phone frame styling */
+.phone-frame {
+  background: #000;
+  border-radius: 48px;
+  padding: 10px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.phone-screen {
+  border-radius: 40px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Feature card hover effect */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Underline style for "notes" */
+.text-underline-custom {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #000;
+}
+
+/* Navbar scroll state */
+.navbar-scrolled {
+  background: rgba(235, 235, 239, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Showcase horizontal scroll */
+.showcase-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.showcase-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Marquee animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 30s linear infinite;
 }
