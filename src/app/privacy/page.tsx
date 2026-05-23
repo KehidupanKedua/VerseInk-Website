@@ -143,10 +143,10 @@ export default function PrivacyPolicy() {
             <p>
               If you have questions about this Privacy Policy, contact us at{" "}
               <a
-                href="mailto:dtclients@digitaltreasury.com.au"
+                href="mailto:joychristian281@gmail.com"
                 className="text-cta-blue hover:underline"
               >
-                dtclients@digitaltreasury.com.au
+                joychristian281@gmail.com
               </a>
             </p>
           </section>

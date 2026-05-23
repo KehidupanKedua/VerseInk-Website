@@ -137,14 +137,14 @@ export default function Support() {
             We&apos;re happy to help with any questions, feedback, or issues.
           </p>
           <a
-            href="mailto:dtclients@digitaltreasury.com.au"
+            href="mailto:joychristian281@gmail.com"
             className="inline-flex items-center gap-1.5 bg-cta-blue text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-blue-600 transition-colors"
           >
             Contact us
             <span className="text-base">&#8250;</span>
           </a>
           <p className="text-xs text-text-muted mt-4">
-            dtclients@digitaltreasury.com.au
+            joychristian281@gmail.com
           </p>
         </section>
 
